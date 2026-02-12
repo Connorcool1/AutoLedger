@@ -36,6 +36,7 @@ public class FileProcessingService
     public async Task<List<Item>> ParseStatementFileAsync(string filePath)
     {
         var items = new List<Item>();
+        int idCount = 0;
 
         try
         {
@@ -46,6 +47,7 @@ public class FileProcessingService
 
                 while ((line = await sr.ReadLineAsync()) != null)
                 {
+
                     line = Regex.Replace(line, @"[\u00A0\uFFFD\t\r]", " ");
                     line = Regex.Replace(line, @"\s+", " ");
                     line = line.Trim();
@@ -58,6 +60,8 @@ public class FileProcessingService
                         }
 
                         currentItem = new Item();
+                        currentItem.Id = idCount;
+                        idCount++;
                         string dateStr = line.Replace("Date:", "").Trim();
                         currentItem.Date = DateTime.Parse(dateStr);
                     }

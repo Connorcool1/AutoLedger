@@ -46,13 +46,13 @@
                 <div class="mt-4">
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="mb-0">Parsed Transactions (@Model.ParsedItems.Count)</h4>
-                        <button type="button" class="btn btn-success btn-lg" id = "downloadBtn">
+                        <button type="submit" form="selectionForm" class="btn btn-success btn-lg">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                 <polyline points="7 10 12 15 17 10"></polyline>
                                 <line x1="12" y1="15" x2="12" y2="3"></line>
                             </svg>
-                            Review & Download
+                            Download
                         </button>
                     </div>
                     <div class="table-responsive">
@@ -66,12 +66,12 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <form id="selectionForm">
+                                <form method="post" asp-page-handler="Download" id="selectionForm">
                                     @for(int i = 0; i < Model.ParsedItems.Count; i++)
                                     {
                                         var item = Model.ParsedItems[i];
                                         <tr>
-                                            <td><input class ="form-check-input item-checkbox" type="checkbox" name ="selectedItems" value="@i" id="item_@i" checked /></td>
+                                            <td><input class ="item-checkbox" type="checkbox" name ="selectedIndices" value="@item.Id" id="item_@item.Id" checked /></td>
                                             <td>@item.Date.ToString("dd/MM/yyyy")</td>
                                             <td>@item.Description</td>
                                             <td>£@item.Amount.ToString("F2")</td>
@@ -121,8 +121,6 @@
     const fileInput = document.getElementById('fileInput');
     const uploadForm = document.getElementById('uploadForm');
     const spinner = document.getElementById('spinner');
-    const selectAllBtn = document.getElementById('selectAllBtn');
-    const deselectAllBtn = document.getElementById('deselectAllBtn');
     const downloadBtn = document.getElementById('downloadBtn');
     const selectionForm = document.getElementById('selectionForm');
     const checkboxes = document.querySelectorAll('.item-checkbox');
@@ -169,32 +167,4 @@
     });
 
 
-    // Download functionality
-    downloadBtn.addEventListener('click', async () => {
-        const selectedIndices = Array.from(checkboxes)
-            .filter(checkbox => checkbox.checked)
-            .map(checkbox => checkbox.value);
-
-        if (selectedIndices.length === 0) {
-            alert('Please select at least one transaction to download.');
-            return;
-        }
-
-        // Create hidden form to submit
-        const form = document.createElement('form');
-        form.method = 'POST';
-        form.action = '@Url.Page("Index", "Download")';
-
-        selectedIndices.forEach(index => {
-            const input = document.createElement('input');
-            input.type = 'hidden';
-            input.name = 'selectedIndices';
-            input.value = index;
-            form.appendChild(input);
-        });
-
-        document.body.appendChild(form);
-        form.submit();
-        document.body.removeChild(form);
-    });
 </script>
