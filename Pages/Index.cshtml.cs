@@ -8,6 +8,7 @@ namespace BookkeepingApp.Pages;
 
 public class IndexModel : PageModel
 {
+    public bool Filter = false;
     private readonly FileProcessingService _fileProcessingService;
     private const string ParsedItemsSessionKey = "ParsedItems";
 
@@ -58,43 +59,56 @@ public class IndexModel : PageModel
         return Page();
     }
 
-    public async Task<IActionResult> OnPostDownloadAsync(int[] selectedIndices)
+    public async Task<IActionResult> OnPostFilterAsync(int[] selectedIndices)
+    {
+        if (selectedIndices == null || selectedIndices.Length == 0)
+        {
+            Message = "Please select at least one transaction to download.";
+            return RedirectToPage();
+        }
+
+        // Get parsed items from session
+        LoadParsedItemsFromSession();
+        
+        if (ParsedItems == null || ParsedItems.Count == 0)
+        {
+            Message = "No parsed items available. Please upload a file first.";
+            return RedirectToPage();
+        }
+
+        // Filter items based on selected indices
+        for (int i = 0; i < ParsedItems.Count; i++) { ParsedItems[i].IsSelected = false; }
+        
+        var selectedItems = new List<Item>();
+        foreach (var index in selectedIndices)
+        {
+            if (index >= 0 && index < ParsedItems.Count)
+            {
+                ParsedItems[index].IsSelected = true;
+                selectedItems.Add(ParsedItems[index]);
+            }
+
+        }
+
+        if (selectedItems.Count == 0)
+        {
+            Message = "No valid indices selected.";
+            return RedirectToPage();
+        }
+
+        StoreParsedItemsInSession(ParsedItems);
+        Filter = true;
+        return Page();
+    }
+
+    public async Task<IActionResult> OnPostDownloadAsync()
     {
         try
         {
-            if (selectedIndices == null || selectedIndices.Length == 0)
-            {
-                Message = "Please select at least one transaction to download.";
-                return RedirectToPage();
-            }
-
-            // Get parsed items from session
             LoadParsedItemsFromSession();
-            
-            if (ParsedItems == null || ParsedItems.Count == 0)
-            {
-                Message = "No parsed items available. Please upload a file first.";
-                return RedirectToPage();
-            }
-
-            // Filter items based on selected indices
-            var selectedItems = new List<Item>();
-            foreach (var index in selectedIndices)
-            {
-                if (index >= 0 && index < ParsedItems.Count)
-                {
-                    selectedItems.Add(ParsedItems[index]);
-                }
-            }
-
-            if (selectedItems.Count == 0)
-            {
-                Message = "Invalid selection. Please try again.";
-                return RedirectToPage();
-            }
 
             // Generate CSV content
-            var csvContent = await _fileProcessingService.GenerateCSVContentAsync(selectedItems);
+            var csvContent = await _fileProcessingService.GenerateCSVContentAsync(ParsedItems.Where(i => i.IsSelected).ToList());
 
             // Return file for download
             var fileName = $"transactions_{DateTime.Now:yyyyMMdd_HHmmss}.csv";

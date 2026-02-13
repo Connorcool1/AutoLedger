@@ -44,16 +44,28 @@
             @if (Model.ParsedItems != null && Model.ParsedItems.Count > 0)
             {
                 <div class="mt-4">
+                    <div>
+                        <h4 class="mb-0">Parsed Transactions (@Model.ParsedItems.Count)</h4>        
+                    </div>
                     <div class="d-flex justify-content-between align-items-center mb-3">
-                        <h4 class="mb-0">Parsed Transactions (@Model.ParsedItems.Count)</h4>
-                        <button type="submit" form="selectionForm" class="btn btn-success btn-lg">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                <polyline points="7 10 12 15 17 10"></polyline>
-                                <line x1="12" y1="15" x2="12" y2="3"></line>
-                            </svg>
-                            Download
-                        </button>
+                        <div>
+                            <span id="selectAll" class="select-all">Select All</span>
+                        </div>
+                        <div class= "gap-2 d-flex">
+                            <form method="post" asp-page-handler="Download" id="downloadForm">
+                                <button type="submit" class="btn btn-success btn-lg" id="downloadBtn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download
+                                </button>
+                            </form>
+                            <button type = "submit" form="selectionForm" class="btn btn-secondary btn-lg ms-2">
+                                Filter
+                            </button>
+                        </div>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-striped table-hover">
@@ -66,9 +78,10 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <form method="post" asp-page-handler="Download" id="selectionForm">
+                                <form method="post" asp-page-handler="Filter" id="selectionForm">
                                     @for(int i = 0; i < Model.ParsedItems.Count; i++)
                                     {
+                                        @if (Model.Filter && !Model.ParsedItems[i].IsSelected) { continue; }
                                         var item = Model.ParsedItems[i];
                                         <tr>
                                             <td><input class ="item-checkbox" type="checkbox" name ="selectedIndices" value="@item.Id" id="item_@item.Id" checked /></td>
@@ -114,6 +127,12 @@
         border-color: #198754;
         box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
     }
+
+    .select-all {
+        text-decoration: underline;
+        cursor: pointer;
+        color: rgb(68, 68, 68);
+    }
 </style>
 
 <script>
@@ -124,6 +143,7 @@
     const downloadBtn = document.getElementById('downloadBtn');
     const selectionForm = document.getElementById('selectionForm');
     const checkboxes = document.querySelectorAll('.item-checkbox');
+    const selectAll = document.getElementById('selectAll'); 
 
     // Click to upload
     dropZone.addEventListener('click', () => fileInput.click());
@@ -165,6 +185,12 @@
     uploadForm.addEventListener('submit', () => {
         spinner.classList.remove('d-none');
     });
+
+    selectAll.addEventListener('click', () => {
+        checkboxes.forEach(checkbox => { checkbox.checked = true; });
+    });
+
+
 
 
 </script>
