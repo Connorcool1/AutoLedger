@@ -62,6 +62,7 @@ public class FileProcessingService
                         currentItem = new Item();
                         currentItem.Id = idCount;
                         idCount++;
+                        currentItem.Type = TransactionType.Default;
                         string dateStr = line.Replace("Date:", "").Trim();
                         currentItem.Date = DateTime.Parse(dateStr);
                     }
@@ -119,13 +120,13 @@ public class FileProcessingService
             using (var sw = new StreamWriter(csvFilePath))
             {
                 // Write header
-                await sw.WriteLineAsync("Date,Description,Amount");
+                await sw.WriteLineAsync("Date,Description,Amount,Type");
 
                 // Write data rows
                 foreach (var item in items)
                 {
                     string escapedDescription = item.Description.Replace("\"", "\"\"");
-                    await sw.WriteLineAsync($"{item.Date:dd/MM/yyyy},\"{escapedDescription}\",{item.Amount}");
+                    await sw.WriteLineAsync($"{item.Date:dd/MM/yyyy},\"{escapedDescription}\",{item.Amount},{item.Type}");
                 }
             }
 
@@ -144,13 +145,13 @@ public class FileProcessingService
             var csvBuilder = new System.Text.StringBuilder();
 
             // Write header
-            csvBuilder.AppendLine("Date,Description,Amount");
+            csvBuilder.AppendLine("Date,Description,Amount,Type");
 
             // Write data rows
             foreach (var item in items)
             {
                 string escapedDescription = item.Description.Replace("\"", "\"\"");
-                csvBuilder.AppendLine($"{item.Date:dd/MM/yyyy},\"{escapedDescription}\",{item.Amount}");
+                csvBuilder.AppendLine($"{item.Date:dd/MM/yyyy},\"{escapedDescription}\",{item.Amount},{item.Type}");
             }
 
             return await Task.FromResult(csvBuilder.ToString());
