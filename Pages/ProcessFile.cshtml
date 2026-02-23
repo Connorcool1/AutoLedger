@@ -27,13 +27,13 @@
                             <span id="selectAll" class="select-all">Select All</span>
                         </div>
                         <div class= "gap-2 d-flex">
-                                <button type="submit" form="downloadForm" class="btn btn-success btn-lg" id="downloadBtn">
+                                <button type="submit" form="filterForm" class="btn btn-success btn-lg" id="filterBtn">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
                                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                                         <polyline points="7 10 12 15 17 10"></polyline>
                                         <line x1="12" y1="15" x2="12" y2="3"></line>
                                     </svg>
-                                    Download
+                                    Confirm
                                 </button>
                             <button type = "button" onclick="filterSelected()" class="btn btn-secondary btn-lg ms-2">
                                 Filter
@@ -48,11 +48,10 @@
                                     <th>Date</th>
                                     <th>Description</th>
                                     <th>Amount</th>
-                                    <th>Type</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <form method="post" asp-page-handler="Download" id="downloadForm">
+                                <form method="post" asp-page-handler="Filter" id="filterForm">
                                     @for(int i = 0; i < Model.ParsedItems.Count; i++)
                                     {
                                         var item = Model.ParsedItems[i];
@@ -61,39 +60,6 @@
                                             <td>@item.Date.ToString("dd/MM/yyyy")</td>
                                             <td>@item.Description</td>
                                             <td>£@item.Amount.ToString("F2")</td>
-                                            <td>
-                                                <div class="d-flex gap-2 justify-content-center align-items-center">
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Ingredients" id="t1_@item.Id" hidden>
-                                                    <label for="t1_@item.Id" class="type-box bg-success"></label>
-
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Packaging" id="t2_@item.Id" hidden>
-                                                    <label for="t2_@item.Id" class="type-box bg-primary"></label>
-
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Utilities" id="t3_@item.Id" hidden>
-                                                    <label for="t3_@item.Id" class="type-box bg-warning"></label>
-
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Advertising" id="t4_@item.Id" hidden>
-                                                    <label for="t4_@item.Id" class="type-box bg-danger"></label>
-
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Artwork" id="t5_@item.Id" hidden>
-                                                    <label for="t5_@item.Id" class="type-box bg-info"></label>
-
-                                                    <input type="radio" class="type-radio" 
-                                                        name="ItemTypes[@item.Id]" 
-                                                        value="Default" id="t6_@item.Id" hidden>
-                                                    <label for="t6_@item.Id" class="type-box bg-secondary"></label>
-                                                </div>
-                                            </td>
                                         </tr>
                                     }
                                 </form>

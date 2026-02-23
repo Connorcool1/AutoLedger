@@ -1,14 +1,231 @@
 @page
 @model TypeAssignModel
 @{
-    ViewData["Title"] = "Type Assignment";
+    ViewData["Title"] = "Home page";
 }
 
 <div class="container mt-5">
     <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <h1 class="mb-4 text-center">Type Assignment</h1>            
-            <p class="text-center">This page is under construction. Please check back later.</p>
+        <div class="col-lg-8">        
+            <h1>Hi</h1>
+            @if (Model.Message != null)
+            {
+                <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
+                    @Model.Message
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            
+            @if (Model.ParsedItems != null && Model.ParsedItems.Count > 0)
+            {
+                <div class="mt-4">
+                    <div>
+                        <h4 class="mb-0">Total Transactions (@Model.ParsedItems.Count)</h4>        
+                    </div>
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <div class= "gap-2 d-flex">
+                                <button type="submit" form="downloadForm" class="btn btn-success btn-lg" id="downloadBtn">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
+                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                        <polyline points="7 10 12 15 17 10"></polyline>
+                                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                                    </svg>
+                                    Download
+                                </button>
+                            <button type = "button" onclick="filterSelected()" class="btn btn-secondary btn-lg ms-2">
+                                Filter
+                            </button>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <form method="post" asp-page-handler="Download" id="downloadForm">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Description</th>
+                                        <th class="pe-5">Amount</th>
+                                        <th class="text-center">Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        @for(int i = 0; i < Model.FilteredItems.Count; i++)
+                                        {
+                                            var item = Model.FilteredItems[i];
+                                            <tr>
+                                                <td>@item.Date.ToString("dd/MM/yyyy")</td>
+                                                <td>@item.Description</td>
+                                                <td class="pe-5">£@item.Amount.ToString("F2")</td>
+                                                <td class="type-cell">
+                                                    <div class="d-flex gap-2 justify-content-center align-items-center">
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Ingredients" id="t1_@item.Id" hidden>
+                                                        <label for="t1_@item.Id" class="type-box bg-success"></label>
+
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Packaging" id="t2_@item.Id" hidden>
+                                                        <label for="t2_@item.Id" class="type-box bg-primary"></label>
+
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Utilities" id="t3_@item.Id" hidden>
+                                                        <label for="t3_@item.Id" class="type-box bg-warning"></label>
+
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Advertising" id="t4_@item.Id" hidden>
+                                                        <label for="t4_@item.Id" class="type-box bg-danger"></label>
+
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Artwork" id="t5_@item.Id" hidden>
+                                                        <label for="t5_@item.Id" class="type-box bg-info"></label>
+
+                                                        <input type="radio" class="type-radio" 
+                                                            name="ItemTypes[@item.Id]" 
+                                                            value="Default" id="t6_@item.Id" hidden>
+                                                        <label for="t6_@item.Id" class="type-box bg-secondary"></label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                </tbody>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            }
         </div>
     </div>
 </div>
+
+
+
+<style>
+    .drop-zone {
+        border: 3px dashed #dee2e6;
+        transition: all 0.3s ease;
+    }
+    
+    .drop-zone.drag-over {
+        background-color: #e7f1ff !important;
+        border-color: #0d6efd !important;
+        box-shadow: 0 0 15px rgba(13, 110, 253, 0.2);
+    }
+    
+    .drop-zone-content {
+        pointer-events: none;
+    }
+
+    .form-check-input:checked {
+        background-color: #198754;
+        border-color: #198754;
+    }
+
+    .form-check-input:checked:focus {
+        border-color: #198754;
+        box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25);
+    }
+
+    .type-box {
+        width: 22px;
+        height: 22px;
+        border-radius: 6px;
+        cursor: pointer;
+        border: 2px solid transparent;
+        transition: transform 0.15s ease, border 0.15s ease;
+    }
+
+    .type-box:hover {
+        transform: scale(1.15);
+    }
+
+    .type-radio:checked + .type-box {
+        border: 2px solid black;
+    }
+
+    tbody tr {
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+
+    .row-ingredients td {
+        background-color: #d1e7dd !important;
+    }
+
+    .row-packaging td {
+        background-color: #cfe2ff !important;
+    }
+
+    .row-utilities td {
+        background-color: #fff3cd !important;
+    }
+
+    .row-advertising td {
+    background-color: #f8d7da !important;
+    }
+
+    .row-artwork td {
+        background-color: #cff4fc !important;
+    }
+
+    /* Keep type cell neutral */
+    .type-cell {
+        background-color: white !important;
+    }
+
+</style>
+
+<script>
+    const dropZone = document.getElementById('dropZone');
+    const fileInput = document.getElementById('fileInput');
+    const uploadForm = document.getElementById('uploadForm');
+    const spinner = document.getElementById('spinner');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const selectionForm = document.getElementById('selectionForm');
+    const checkboxes = document.querySelectorAll('.item-checkbox');
+    const selectAll = document.getElementById('selectAll'); 
+
+    function filterSelected() {
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const checkbox = row.querySelector('.item-checkbox');
+            if (checkbox && !checkbox.checked) {
+                row.style.display = 'none';
+            }
+        });
+    }
+
+    document.querySelectorAll('.type-radio').forEach(radio => {
+        radio.addEventListener('change', function() {
+            const itemId = this.name.match(/\d+/)[0];
+            const row = this.closest('tr');
+            row.classList.remove('row-ingredients', 'row-packaging', 'row-utilities', 'row-advertising', 'row-artwork', 'row-default');
+
+            console.log("changed to: " + this.value);
+            switch(this.value) {
+                case 'Ingredients':
+                    row.classList.add('row-ingredients');
+                    break;
+                case 'Packaging':
+                    row.classList.add('row-packaging');
+                    break;
+                case 'Utilities':
+                    row.classList.add('row-utilities');
+                    break;
+                case 'Advertising':
+                    row.classList.add('row-advertising');
+                    break;
+                case 'Artwork':
+                    row.classList.add('row-artwork');
+                    break;
+                case 'Default':
+                    row.classList.add('row-default');
+                    break;
+            }
+        });
+    });
+
+</script>

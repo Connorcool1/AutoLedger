@@ -19,13 +19,13 @@ public class ProcessFileModel : PageModel
     [BindProperty]
     public Dictionary<int, TransactionType> ItemTypes { get; set; }
 
-    public ProcessFileModel(FileProcessingService fileProcessingService)
+    public ProcessFileModel(FileProcessingService fileProcessingService, SessionService session)
     {
         _fileProcessingService = fileProcessingService;
-        _session = new SessionService(new HttpContextAccessor());
+        _session = session;
     }
 
-    public void OnGet(List<Item>? items)
+    public void OnGet()
     {
         ParsedItems = _session.GetItems();
     }
@@ -89,10 +89,8 @@ public class ProcessFileModel : PageModel
                 FilteredItems.Add(item);
             }
 
-            // Generate CSV content
             var csvContent = await _fileProcessingService.GenerateCSVContentAsync(FilteredItems);
 
-            // Return file for download
             var fileName = $"transactions_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
             return File(System.Text.Encoding.UTF8.GetBytes(csvContent), "text/csv", fileName);
         }
@@ -101,5 +99,17 @@ public class ProcessFileModel : PageModel
             Message = $"Error generating download: {ex.Message}";
             return RedirectToPage();
         }
+    }
+
+    public async Task<IActionResult> OnPostFilterAsync(int[] selectedIndices)
+    {
+        if (selectedIndices == null || selectedIndices.Length == 0) {
+            Message = $"Select some transactions to be download";
+            return Page();
+        }
+
+        _session.StoreIndices(selectedIndices);
+
+        return RedirectToPage("TypeAssign");
     }
 }

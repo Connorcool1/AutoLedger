@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/connor/Documents/code/coconutblush/AutoLedger/BookkeepingApp.csproj": {}
+    "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj": {}
   },
   "projects": {
-    "/home/connor/Documents/code/coconutblush/AutoLedger/BookkeepingApp.csproj": {
+    "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/connor/Documents/code/coconutblush/AutoLedger/BookkeepingApp.csproj",
+        "projectUniqueName": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
         "projectName": "BookkeepingApp",
-        "projectPath": "/home/connor/Documents/code/coconutblush/AutoLedger/BookkeepingApp.csproj",
+        "projectPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
         "packagesPath": "/home/connor/.nuget/packages/",
-        "outputPath": "/home/connor/Documents/code/coconutblush/AutoLedger/obj/",
+        "outputPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/connor/.nuget/NuGet/NuGet.Config"
@@ -63,7 +63,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/10.0.100/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.AspNetCore": "(,10.0.32767]",
             "Microsoft.AspNetCore.Antiforgery": "(,10.0.32767]",
