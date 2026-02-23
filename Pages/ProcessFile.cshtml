@@ -7,7 +7,7 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-lg-8">        
-            <h1>Hi</h1>
+            <h1>Select items to download: </h1>
             @if (Model.Message != null)
             {
                 <div class="alert alert-info alert-dismissible fade show mt-4" role="alert">
@@ -22,22 +22,17 @@
                     <div>
                         <h4 class="mb-0">Total Transactions (@Model.ParsedItems.Count)</h4>        
                     </div>
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <div>
-                            <span id="selectAll" class="select-all">Select All</span>
-                        </div>
-                        <div class= "gap-2 d-flex">
+                    <div class="d-flex flex-column mb-3" style="min-height: 80px;">
+                        <div class="d-flex justify-content-between mt-auto">
+                            <div class="d-flex gap-2 mt-auto">
+                                <span id="selectAll" class="select-all">Select All</span>
+                                <span id="deselectAll" class="select-all">Deselect All</span>
+                            </div>
+                            <div>
                                 <button type="submit" form="filterForm" class="btn btn-success btn-lg" id="filterBtn">
-                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: inline; margin-right: 8px;">
-                                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                                        <polyline points="7 10 12 15 17 10"></polyline>
-                                        <line x1="12" y1="15" x2="12" y2="3"></line>
-                                    </svg>
                                     Confirm
                                 </button>
-                            <button type = "button" onclick="filterSelected()" class="btn btn-secondary btn-lg ms-2">
-                                Filter
-                            </button>
+                            </div>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -142,9 +137,13 @@
     const selectionForm = document.getElementById('selectionForm');
     const checkboxes = document.querySelectorAll('.item-checkbox');
     const selectAll = document.getElementById('selectAll'); 
+    const deselectAll = document.getElementById('deselectAll');
 
     selectAll.addEventListener('click', () => {
         checkboxes.forEach(checkbox => { checkbox.checked = true; });
+    });
+    deselectAll.addEventListener('click', () => {
+        checkboxes.forEach(checkbox => { checkbox.checked = false; });
     });
 
     document.querySelectorAll('tbody tr').forEach(row => {

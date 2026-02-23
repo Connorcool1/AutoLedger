@@ -24,18 +24,15 @@ public class TypeAssignModel : PageModel
     }
     public void OnGet()
     {
-        ParsedItems = _session.GetItems();
-        FilteredIndices = _session.GetIndices();
-
-        FilteredItems = new List<Item>();
-
-        FilteredItems = FilteredIndices.Select(i => ParsedItems[i]).ToList();
+        FilteredItems = GetFilteredItems();
     }
 
     public async Task<IActionResult> OnPostDownloadAsync()
     {
         try
         {
+            FilteredItems = GetFilteredItems();
+
             for (int i = 0; i < FilteredItems.Count; i++)
             {
                 FilteredItems[i].Type = ItemTypes[FilteredItems[i].Id.Value];
@@ -51,5 +48,12 @@ public class TypeAssignModel : PageModel
             Message = $"Error generating download: {ex.Message}";
             return RedirectToPage();
         }
+    }
+    private List<Item>? GetFilteredItems()
+    {
+        var parsedItems = _session.GetItems();
+        var filteredIndices = _session.GetIndices();
+
+        return filteredIndices.Select(i => parsedItems[i]).ToList();
     }
 }

@@ -140,14 +140,19 @@ public class FileProcessingService
 
     public async Task<string> GenerateCSVContentAsync(List<Item> items)
     {
+
         try
         {
             var csvBuilder = new System.Text.StringBuilder();
 
-            // Write header
-            csvBuilder.AppendLine("Date,Description,Amount,Type");
+            // Header
+            csvBuilder.AppendLine("Date,Description,Amount,Type,Total");
 
-            // Write data rows
+            // Total balance
+            double totalAmount = CalculateTotalAmount(items);
+            csvBuilder.AppendLine($",,,,£{totalAmount}");
+
+            // Data
             foreach (var item in items)
             {
                 string escapedDescription = item.Description.Replace("\"", "\"\"");
@@ -160,5 +165,15 @@ public class FileProcessingService
         {
             throw new InvalidOperationException($"Error generating CSV content: {ex.Message}", ex);
         }
+    }
+
+    private double CalculateTotalAmount(List<Item> items)
+    {
+        double total = 0;
+        foreach (var item in items)
+        {
+            total += item.Amount;
+        }
+        return Math.Round(total, 2);
     }
 }
