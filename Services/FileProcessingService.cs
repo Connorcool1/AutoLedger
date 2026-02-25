@@ -45,7 +45,7 @@ public class FileProcessingService
             using (var sr = new StreamReader(file.OpenReadStream(), System.Text.Encoding.UTF8))
             {
                 string line;
-                Item currentItem = new Item();
+                Item currentItem = null;
 
                 while ((line = await sr.ReadLineAsync()) != null)
                 {

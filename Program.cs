@@ -10,11 +10,8 @@ builder.Services.AddScoped<FileProcessingService>();
 builder.Services.AddScoped<SessionService>();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
-builder.WebHost.UseUrls("https://localhost:5000");
 
 var app = builder.Build();
-
-var url = "https://localhost:5000";
 
 
 // Configure the HTTP request pipeline.
@@ -37,7 +34,6 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
-Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
 
-app.Run(url);
+app.Run();
 
