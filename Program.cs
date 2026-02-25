@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using BookkeepingApp.Services;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +10,12 @@ builder.Services.AddScoped<FileProcessingService>();
 builder.Services.AddScoped<SessionService>();
 builder.Services.AddSession();
 builder.Services.AddHttpContextAccessor();
+builder.WebHost.UseUrls("https://localhost:5000");
 
 var app = builder.Build();
+
+var url = "https://localhost:5000";
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -32,4 +37,7 @@ app.MapStaticAssets();
 app.MapRazorPages()
    .WithStaticAssets();
 
-app.Run();
+Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
+
+app.Run(url);
+

@@ -146,12 +146,13 @@ public class FileProcessingService
             var csvBuilder = new System.Text.StringBuilder();
 
             // Header
-            csvBuilder.AppendLine("Date,Description,Amount,Type,Total");
+            csvBuilder.AppendLine("Date,Description,Amount,Type,Total Expenditure,Total Income,Total Balance");
 
             // Total balance
             double totalAmount = CalculateTotalAmount(items);
-            csvBuilder.AppendLine($",,,,£{totalAmount}");
-
+            double totalIncome = getTotalIncome(items);
+            double totalExpenditure = getTotalExpenditure(items);
+            csvBuilder.AppendLine($",,,,£{totalExpenditure},£{totalIncome},£{totalAmount}");
             // Data
             foreach (var item in items)
             {
@@ -165,6 +166,32 @@ public class FileProcessingService
         {
             throw new InvalidOperationException($"Error generating CSV content: {ex.Message}", ex);
         }
+    }
+
+    private double getTotalExpenditure(List<Item> items)
+    {
+        double total = 0;
+        foreach (var item in items)
+        {
+            if (item.Amount < 0)
+            {
+                total += item.Amount;
+            }
+        }
+        return Math.Round(total, 2);
+    }
+
+    private double getTotalIncome(List<Item> items)
+    {
+        double total = 0;
+        foreach (var item in items)
+        {
+            if (item.Amount > 0)
+            {
+                total += item.Amount;
+            }
+        }
+        return Math.Round(total, 2);
     }
 
     private double CalculateTotalAmount(List<Item> items)

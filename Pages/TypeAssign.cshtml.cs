@@ -38,9 +38,12 @@ public class TypeAssignModel : PageModel
                 FilteredItems[i].Type = ItemTypes[FilteredItems[i].Id.Value];
             }
 
+            int year = FilteredItems[0].Date.Year;
+            string month = FilteredItems[0].Date.ToString("MMMM").ToUpper();
+            
             var csvContent = await _fileProcessingService.GenerateCSVContentAsync(FilteredItems);
 
-            var fileName = $"transactions_{DateTime.Now:yyyyMMdd_HHmmss}.csv";
+            var fileName = $"{month}_{year}.csv";
             return File(System.Text.Encoding.UTF8.GetBytes(csvContent), "text/csv", fileName);
         }
         catch (Exception ex)

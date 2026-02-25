@@ -1,0 +1,473 @@
+From: 01/01/2025 to 28/01/2026
+							
+Account: XXXX XXXX XXXX 6089
+						
+Date: 28/01/2026
+Description: CARD PAYMENT TO PAYPAL *ZOOPLUS SE   ON 26-01-2026
+Amount: -101.88 	
+Balance: 18742.89 
+						
+Date: 28/01/2026
+Description: CARD PAYMENT TO PAYPAL *CASCELLOID CAS   ON 27-01-2026
+Amount: -191.79 	
+Balance: 18844.77 
+						
+Date: 28/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.INVOICE 270126 FROM JAPP MEDIA LTD
+Amount: 88.55 	
+Balance: 19036.56 
+						
+Date: 28/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.NH270126 FROM HAMPTON NR
+Amount: 151.45 	
+Balance: 18948.01 
+						
+Date: 28/01/2026
+Description: CARD PAYMENT TO PRINTEXPRESS PRINT &amp; C   ON 27-01-2026
+Amount: -15.12 	
+Balance: 18796.56 
+						
+Date: 28/01/2026
+Description: CARD PAYMENT TO PAYPAL *ROYAL MAIL   ON 27-01-2026
+Amount: -3.55 	
+Balance: 18811.68 
+						
+Date: 28/01/2026
+Description: CARD PAYMENT TO Vinted   ON 27-01-2026
+Amount: -15.59 	
+Balance: 18815.23 
+						
+Date: 27/01/2026
+Description: CARD PAYMENT TO NETFLIX.COM   ON 27-01-2026
+Amount: -12.99 	
+Balance: 18830.82 
+						
+Date: 27/01/2026
+Description: CARD PAYMENT TO PAYPAL *ROYAL MAIL   ON 26-01-2026
+Amount: -4.40 	
+Balance: 18843.81 
+						
+Date: 27/01/2026
+Description: POST OFFICE CASH DEPOSIT
+Amount: 200.00 	
+Balance: 18848.21 
+						
+Date: 26/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.SHAMPOO SAMPLES FROM THE DO GR U T/AS
+Amount: 31.95 	
+Balance: 18648.21 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO MCDONALDS 1706   ON 25-01-2026
+Amount: -5.98 	
+Balance: 18616.26 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO PAYPAL *THESOAPERY THE   ON 24-01-2026
+Amount: -6.99 	
+Balance: 18622.24 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO WAITROSE STORES   ON 25-01-2026
+Amount: -7.53 	
+Balance: 18629.23 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO Amazon.co.uk*JQ2ER4ST5   ON 25-01-2026
+Amount: -7.20 	
+Balance: 18636.76 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 25-01-2026
+Amount: -9.32 	
+Balance: 18643.96 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 25-01-2026
+Amount: -9.32 	
+Balance: 18653.28 
+						
+Date: 26/01/2026
+Description: CARD PAYMENT TO AMAZON UK* XZ88M02C5   ON 25-01-2026
+Amount: -9.97 	
+Balance: 18662.60 
+						
+Date: 26/01/2026
+Description: DIRECT DEBIT PAYMENT TO SANTANDER CONSUMER REF 10025009000222, MANDATE NO 0030
+Amount: -159.69 	
+Balance: 18672.57 
+						
+Date: 25/01/2026
+Description: CARD PAYMENT TO Vinted   ON 25-01-2026
+Amount: -49.33 	
+Balance: 18832.26 
+						
+Date: 25/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.PP270124 FROM Thomas Pike Jr
+Amount: 297.00 	
+Balance: 18881.59 
+						
+Date: 25/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 24-01-2026
+Amount: -27.74 	
+Balance: 18584.59 
+						
+Date: 24/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.mk210126 FROM Made Kind Ltd
+Amount: 296.00 	
+Balance: 18612.33 
+						
+Date: 23/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.PRT080126 FROM PAWS RIGHT THERE LTD
+Amount: 194.00 	
+Balance: 18316.33 
+						
+Date: 23/01/2026
+Description: CREDIT FROM PAYPAL *WAINSTUNBRI ON 22-01-2026
+Amount: 18.00 	
+Balance: 18122.33 
+						
+Date: 22/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -3000.00 	
+Balance: 18104.33 
+						
+Date: 22/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -1500.00 	
+Balance: 21104.33 
+						
+Date: 22/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -100.00 	
+Balance: 22604.33 
+						
+Date: 22/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -100.00 	
+Balance: 22704.33 
+						
+Date: 21/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -500.00 	
+Balance: 22804.33 
+						
+Date: 21/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.CR200126 FROM MRS C M REVILL
+Amount: 285.00 	
+Balance: 23304.33 
+						
+Date: 21/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.MK200126 FROM Made Kind Ltd
+Amount: 472.28 	
+Balance: 23019.33 
+						
+Date: 20/01/2026
+Description: BILL PAYMENT FROM DRAGONFLY PRODUCTS LIMITED, REFERENCE DF171225
+Amount: 239.60 	
+Balance: 22547.05 
+						
+Date: 19/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.WOOPAYMENTS FROM Stripe Payments UK Ltd
+Amount: 72.91 	
+Balance: 22307.45 
+						
+Date: 19/01/2026
+Description: DIRECT DEBIT PAYMENT TO PNET2745023-2 REF PNET2745023-2, MANDATE NO 0027
+Amount: -38.50 	
+Balance: 22234.54 
+						
+Date: 18/01/2026
+Description: CARD PAYMENT TO PAYPAL * ROYAL MAIL   ON 17-01-2026
+Amount: -7.05 	
+Balance: 22273.04 
+						
+Date: 16/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.PW150126 FROM P Ziemak
+Amount: 16.95 	
+Balance: 22280.09 
+						
+Date: 15/01/2026
+Description: CARD PAYMENT TO PAYPAL * ROYAL MAIL   ON 14-01-2026
+Amount: -4.45 	
+Balance: 22263.14 
+						
+Date: 15/01/2026
+Description: CARD PAYMENT TO PAYPAL * ROYAL MAIL   ON 14-01-2026
+Amount: -4.45 	
+Balance: 22267.59 
+						
+Date: 15/01/2026
+Description: DIRECT DEBIT PAYMENT TO OCTOPUS REF ZCG344W, MANDATE NO 0016
+Amount: -135.69 	
+Balance: 22272.04 
+						
+Date: 15/01/2026
+Description: 5 Direct Debit Payments at 1,00% Cashback
+Amount: 4.01 	
+Balance: 22407.73 
+						
+Date: 15/01/2026
+Description: INTEREST PAID AFTER TAX 0.00 DEDUCTED
+Amount: 39.10 	
+Balance: 22403.72 
+						
+Date: 15/01/2026
+Description: MAINTAINING THE ACCOUNT - MONTHLY FEE
+Amount: -5.00 	
+Balance: 22364.62 
+						
+Date: 14/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.120126 FROM Made Kind Ltd
+Amount: 356.40 	
+Balance: 22369.62 
+						
+Date: 14/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.James Crosby CHCC FROM CROSBY J
+Amount: 912.00 	
+Balance: 22013.22 
+						
+Date: 14/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO JANE MALCOLM REFERENCE SANTANDER TRANSFER , MANDATE NO
+Amount: -500.00 	
+Balance: 21101.22 
+						
+Date: 14/01/2026
+Description: CARD PAYMENT TO EAVES CHIMNEY SPECIALI   ON 13-01-2026
+Amount: -78.00 	
+Balance: 21601.22 
+						
+Date: 14/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 13-01-2026
+Amount: -19.87 	
+Balance: 21679.22 
+						
+Date: 14/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 13-01-2026
+Amount: -18.66 	
+Balance: 21699.09 
+						
+Date: 14/01/2026
+Description: CARD PAYMENT TO PAYPAL *EASYWINNING   ON 13-01-2026
+Amount: -3.00 	
+Balance: 21717.75 
+						
+Date: 13/01/2026
+Description: CREDIT FROM eBay O*20-14036-38589 ON 12-01-2026
+Amount: 30.53 	
+Balance: 21720.75 
+						
+Date: 13/01/2026
+Description: BILL PAYMENT VIA FASTER PAYMENT TO ABBIE MALCOLM REFERENCE MUM , MANDATE NO 0298
+Amount: -100.00 	
+Balance: 21690.22 
+						
+Date: 12/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.PPWDL5VF2222322SUJ FROM PAYPAL
+Amount: 48.46 	
+Balance: 21790.22 
+						
+Date: 12/01/2026
+Description: CARD PAYMENT TO eBay O*16-14081-44444   ON 12-01-2026
+Amount: -29.40 	
+Balance: 21741.76 
+						
+Date: 12/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.080126 FROM Made Kind Ltd
+Amount: 324.34 	
+Balance: 21771.16 
+						
+Date: 12/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 11-01-2026
+Amount: -31.15 	
+Balance: 21446.82 
+						
+Date: 12/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 11-01-2026
+Amount: -29.81 	
+Balance: 21477.97 
+						
+Date: 12/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 11-01-2026
+Amount: -9.32 	
+Balance: 21507.78 
+						
+Date: 12/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 11-01-2026
+Amount: -9.32 	
+Balance: 21517.10 
+						
+Date: 11/01/2026
+Description: CARD PAYMENT TO WAITROSE STORES   ON 10-01-2026
+Amount: -3.50 	
+Balance: 21526.42 
+						
+Date: 09/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 08-01-2026
+Amount: -58.18 	
+Balance: 21529.92 
+						
+Date: 09/01/2026
+Description: CARD PAYMENT TO SAINSBURYS   ON 08-01-2026
+Amount: -5.50 	
+Balance: 21588.10 
+						
+Date: 09/01/2026
+Description: CARD PAYMENT TO PRINTEXPRESS PRINT &amp; C   ON 08-01-2026
+Amount: -56.44 	
+Balance: 21593.60 
+						
+Date: 08/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.Lumine Shampoo &amp; C FROM GRD HAIR LIMITED
+Amount: 456.00 	
+Balance: 21650.04 
+						
+Date: 08/01/2026
+Description: CARD PAYMENT TO WAITROSE STORES   ON 07-01-2026
+Amount: -5.40 	
+Balance: 21194.04 
+						
+Date: 08/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.LW070126 FROM WALKER LA
+Amount: 86.35 	
+Balance: 21199.44 
+						
+Date: 08/01/2026
+Description: CARD PAYMENT TO SUPERDRUG STORES PLC   ON 07-01-2026
+Amount: -9.90 	
+Balance: 21113.09 
+						
+Date: 08/01/2026
+Description: CARD PAYMENT TO PRINTEXPRESS PRINT &amp; C   ON 07-01-2026
+Amount: -3.00 	
+Balance: 21122.99 
+						
+Date: 08/01/2026
+Description: CREDIT FROM PAYPAL *DR MARTENS DRM ON 07-01-2026
+Amount: 140.00 	
+Balance: 21125.99 
+						
+Date: 08/01/2026
+Description: DIRECT DEBIT PAYMENT TO O2 REF D9082252, MANDATE NO 0029
+Amount: -49.47 	
+Balance: 20985.99 
+						
+Date: 07/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.050126 FROM Made Kind Ltd
+Amount: 444.00 	
+Balance: 21035.46 
+						
+Date: 07/01/2026
+Description: CARD PAYMENT TO PRINTEXPRESS PRINT &amp; C   ON 06-01-2026
+Amount: -25.70 	
+Balance: 20591.46 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO Coach House Fish and   ON 06-01-2026
+Amount: -3.80 	
+Balance: 20617.16 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO Geoff Mycock and Son   ON 06-01-2026
+Amount: -8.95 	
+Balance: 20620.96 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO SP THECARTRIDGECEN   ON 05-01-2026
+Amount: -77.89 	
+Balance: 20629.91 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 05-01-2026
+Amount: -28.73 	
+Balance: 20707.80 
+						
+Date: 06/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.Invoices SG-IYL 16 FROM SOURCING GENIE LLP
+Amount: 285.00 	
+Balance: 20736.53 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 05-01-2026
+Amount: -41.95 	
+Balance: 20451.53 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 05-01-2026
+Amount: -29.81 	
+Balance: 20493.48 
+						
+Date: 06/01/2026
+Description: CARD PAYMENT TO Amazon Prime*ZC1GL9F64   ON 05-01-2026
+Amount: -8.99 	
+Balance: 20523.29 
+						
+Date: 05/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 04-01-2026
+Amount: -9.32 	
+Balance: 20532.28 
+						
+Date: 04/01/2026
+Description: CARD PAYMENT TO SP INGREDIENT STORE   ON 03-01-2026
+Amount: -504.90 	
+Balance: 20541.60 
+						
+Date: 04/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 03-01-2026
+Amount: -6.70 	
+Balance: 21046.50 
+						
+Date: 04/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 03-01-2026
+Amount: -9.32 	
+Balance: 21053.20 
+						
+Date: 04/01/2026
+Description: CARD PAYMENT TO PARCELFORCE WORLDWIDE   ON 03-01-2026
+Amount: -9.32 	
+Balance: 21062.52 
+						
+Date: 03/01/2026
+Description: CARD PAYMENT TO eBay O*20-14036-38589   ON 03-01-2026
+Amount: -30.53 	
+Balance: 21071.84 
+						
+Date: 03/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.COCONUT BLUSH PAWD FROM PAWDAW OF LO LTD
+Amount: 253.05 	
+Balance: 21102.37 
+						
+Date: 02/01/2026
+Description: CARD PAYMENT TO WM MORRISONS STORE   ON 01-01-2026
+Amount: -71.05 	
+Balance: 20849.32 
+						
+Date: 02/01/2026
+Description: FASTER PAYMENTS RECEIPT REF.MGP Vinted FROM Mangopay S.A.
+Amount: 8.00 	
+Balance: 20920.37 
+						
+Date: 02/01/2026
+Description: DIRECT DEBIT PAYMENT TO HIGH PEAK BOROUGH REF 01 72139198, MANDATE NO 0009
+Amount: -131.00 	
+Balance: 20912.37 
+						
+Date: 01/01/2026
+Description: CARD PAYMENT TO WAITROSE STORES   ON 31-12-2025
+Amount: -7.55 	
+Balance: 21043.37 
+						
+Date: 01/01/2026
+Description: CARD PAYMENT TO SUPERDRUG STORES PLC   ON 31-12-2025
+Amount: -1.50 	
+Balance: 21050.92 
+						
+Date: 01/01/2026
+Description: CARD PAYMENT TO Santiago   ON 31-12-2025
+Amount: -69.15 	
+Balance: 21052.42 
+						
+Date: 01/01/2026
+Description: CARD PAYMENT TO VAPE SHOP OUTLET   ON 31-12-2025
+Amount: -66.00 	
+Balance: 21121.57
