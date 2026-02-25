@@ -9,13 +9,11 @@ public class TypeAssignModel : PageModel
 {
     private readonly FileProcessingService _fileProcessingService;
     private readonly SessionService _session;
-    public List<Item>? ParsedItems { get; set; }
-    public List<Item>? FilteredItems { get; set; }
-    public int[]? FilteredIndices { get; set; }
+    public List<Item> FilteredItems { get; set; } = new List<Item>();
     public string? Message { get; set; }
 
     [BindProperty]
-    public Dictionary<int, TransactionType> ItemTypes { get; set; }
+    public Dictionary<int, TransactionType> ItemTypes { get; set; } = new Dictionary<int, TransactionType>();
 
     public TypeAssignModel(FileProcessingService fileProcessingService, SessionService session)
     {
@@ -32,6 +30,11 @@ public class TypeAssignModel : PageModel
         try
         {
             FilteredItems = GetFilteredItems();
+            if (!FilteredItems.Any())
+            {
+                Message = $"No Items Found";
+                return RedirectToPage();
+            }
 
             for (int i = 0; i < FilteredItems.Count; i++)
             {
@@ -52,7 +55,7 @@ public class TypeAssignModel : PageModel
             return RedirectToPage();
         }
     }
-    private List<Item>? GetFilteredItems()
+    private List<Item> GetFilteredItems()
     {
         var parsedItems = _session.GetItems();
         var filteredIndices = _session.GetIndices();

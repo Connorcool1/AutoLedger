@@ -14,11 +14,7 @@ public class ProcessFileModel : PageModel
     private const string ParsedItemsSessionKey = "ParsedItems";
 
     public string? Message { get; set; }
-    public List<Item>? ParsedItems { get; set; }
-
-    [BindProperty]
-    public Dictionary<int, TransactionType> ItemTypes { get; set; }
-
+    public List<Item> ParsedItems { get; set; } = new List<Item>();
     public ProcessFileModel(FileProcessingService fileProcessingService, SessionService session)
     {
         _fileProcessingService = fileProcessingService;
@@ -35,48 +31,6 @@ public class ProcessFileModel : PageModel
         return Page();
     }
 
-    // public async Task<IActionResult> OnPostFilterAsync(int[] selectedIndices)
-    // {
-    //     if (selectedIndices == null || selectedIndices.Length == 0)
-    //     {
-    //         Message = "Please select at least one transaction to download.";
-    //         return RedirectToPage();
-    //     }
-
-    //     // Get parsed items from session
-    //     LoadParsedItemsFromSession();
-        
-    //     if (ParsedItems == null || ParsedItems.Count == 0)
-    //     {
-    //         Message = "No parsed items available. Please upload a file first.";
-    //         return RedirectToPage();
-    //     }
-
-    //     // Filter items based on selected indices
-    //     for (int i = 0; i < ParsedItems.Count; i++) { ParsedItems[i].IsSelected = false; }
-        
-    //     var selectedItems = new List<Item>();
-    //     foreach (var index in selectedIndices)
-    //     {
-    //         if (index >= 0 && index < ParsedItems.Count)
-    //         {
-    //             ParsedItems[index].IsSelected = true;
-    //             selectedItems.Add(ParsedItems[index]);
-    //         }
-
-    //     }
-
-    //     if (selectedItems.Count == 0)
-    //     {
-    //         Message = "No valid indices selected.";
-    //         return RedirectToPage();
-    //     }
-
-    //     StoreParsedItemsInSession(ParsedItems);
-    //     Filter = true;
-    //     return Page();
-    // }
-
     public async Task<IActionResult> OnPostDownloadAsync(int[] selectedIndices)
     {
         List<Item> FilteredItems = new List<Item>();
@@ -85,7 +39,6 @@ public class ProcessFileModel : PageModel
             for (int i = 0; i < selectedIndices.Length; i++)
             {
                 Item item = ParsedItems[selectedIndices[i]];
-                item.Type = ItemTypes[item.Id.Value];
                 FilteredItems.Add(item);
             }
 

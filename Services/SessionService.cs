@@ -12,36 +12,36 @@ public class SessionService {
         _httpContextAccessor = httpContextAccessor;
     }
 
-    public void StoreItems(List<Item>? items)
+    public void StoreItems(List<Item> items)
     {
+        if (items == null) return;
         var json = JsonSerializer.Serialize(items);
         _httpContextAccessor.HttpContext.Session.SetString(ParsedItemsSessionKey, json);
     }
 
     public void StoreIndices(int[] indices)
     {
+        if (indices == null) return;
         var json = JsonSerializer.Serialize(indices);
         _httpContextAccessor.HttpContext.Session.SetString(IndicesSessionKey, json);
     }
 
-    public List<Item>? GetItems()
+    public List<Item> GetItems()
     {
         var json = _httpContextAccessor.HttpContext.Session.GetString(ParsedItemsSessionKey);
         if (!string.IsNullOrEmpty(json))
         {
             return JsonSerializer.Deserialize<List<Item>>(json);
         }
-        return null;
+        return new List<Item>();
     }
-    public int[]? GetIndices()
+    public int[] GetIndices()
     {
         var json = _httpContextAccessor.HttpContext.Session.GetString(IndicesSessionKey);
         if (!string.IsNullOrEmpty(json))
         {
             return JsonSerializer.Deserialize<int[]>(json);
         }
-        return null;
+        return [];
     }
-
-    // ask about the null values ^^ why quesion mark
 }

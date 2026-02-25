@@ -12,16 +12,14 @@ public class FileProcessingService
             throw new ArgumentException("File is null or empty.");
         }
 
-        // Define the upload directory
         var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
 
-        // Create the directory if it doesn't exist
         if (!Directory.Exists(uploadsFolder))
         {
             Directory.CreateDirectory(uploadsFolder);
         }
 
-        // Save the file
+        // Save
         var fileName = Path.GetFileName(file.FileName);
         var filePath = Path.Combine(uploadsFolder, fileName);
 
@@ -33,17 +31,21 @@ public class FileProcessingService
         return filePath;
     }
 
-    public async Task<List<Item>> ParseStatementFileAsync(string filePath)
+    public async Task<List<Item>> ParseStatementFileAsync(IFormFile file)
     {
         var items = new List<Item>();
         int idCount = 0;
 
+        if (file == null || file.Length == 0)
+        {
+            throw new ArgumentException("No file / file is empty.");
+        }
         try
         {
-            using (var sr = new StreamReader(filePath, System.Text.Encoding.UTF8))
+            using (var sr = new StreamReader(file.OpenReadStream(), System.Text.Encoding.UTF8))
             {
                 string line;
-                Item currentItem = null;
+                Item currentItem = new Item();
 
                 while ((line = await sr.ReadLineAsync()) != null)
                 {
@@ -58,7 +60,7 @@ public class FileProcessingService
                         {
                             items.Add(currentItem);
                         }
-
+                    
                         currentItem = new Item();
                         currentItem.Id = idCount;
                         idCount++;
@@ -90,7 +92,6 @@ public class FileProcessingService
                     }
                 }
 
-                // Add the last item if exists
                 if (currentItem != null)
                 {
                     items.Add(currentItem);
@@ -119,10 +120,10 @@ public class FileProcessingService
 
             using (var sw = new StreamWriter(csvFilePath))
             {
-                // Write header
+                // Header
                 await sw.WriteLineAsync("Date,Description,Amount,Type");
 
-                // Write data rows
+                // Data
                 foreach (var item in items)
                 {
                     string escapedDescription = item.Description.Replace("\"", "\"\"");
@@ -148,7 +149,7 @@ public class FileProcessingService
             // Header
             csvBuilder.AppendLine("Date,Description,Amount,Type,Total Expenditure,Total Income,Total Balance");
 
-            // Total balance
+            // Balance
             double totalAmount = CalculateTotalAmount(items);
             double totalIncome = getTotalIncome(items);
             double totalExpenditure = getTotalExpenditure(items);

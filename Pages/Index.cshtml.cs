@@ -11,17 +11,11 @@ public class IndexModel : PageModel
 {
     private readonly FileProcessingService _fileProcessingService;
     private readonly SessionService _session;
-
     public string? Message { get; set; }
-    public List<Item>? ParsedItems { get; set; }
-
-    [BindProperty]
-    public Dictionary<int, TransactionType> ItemTypes { get; set; }
-
-    public IndexModel(FileProcessingService fileProcessingService)
+    public IndexModel(FileProcessingService fileProcessingService, SessionService session)
     {
         _fileProcessingService = fileProcessingService;
-        _session = new SessionService(new HttpContextAccessor());
+        _session = session;
     }
 
     public async Task<IActionResult> OnPostAsync(IFormFile file)
@@ -34,20 +28,18 @@ public class IndexModel : PageModel
                 return Page();
             }
 
-            var filePath = await _fileProcessingService.SaveFileAsync(file);
+            var parsedItems = await _fileProcessingService.ParseStatementFileAsync(file);
 
-            ParsedItems = await _fileProcessingService.ParseStatementFileAsync(filePath);
-
-            if (ParsedItems.Count == 0)
+            if (parsedItems.Count == 0)
             {
                 Message = "No transactions found in the file.";
                 return Page();
             }
 
             // Store parsed items in session
-            _session.StoreItems(ParsedItems);
+            _session.StoreItems(parsedItems);
 
-            Message = $"Successfully parsed {ParsedItems.Count} transactions!";
+            Message = $"Successfully parsed {parsedItems.Count} transactions!";
         }
         catch (Exception ex)
         {
