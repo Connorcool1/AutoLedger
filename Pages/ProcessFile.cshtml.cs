@@ -24,6 +24,7 @@ public class ProcessFileModel : PageModel
     public void OnGet()
     {
         ParsedItems = _session.GetItems();
+        Console.WriteLine($"Retrieved {ParsedItems.Count} items from session.");
     }
 
     public async Task<IActionResult> OnPostAsync()

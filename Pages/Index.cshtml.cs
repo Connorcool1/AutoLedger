@@ -38,14 +38,17 @@ public class IndexModel : PageModel
 
             // Store parsed items in session
             _session.StoreItems(parsedItems);
+            Console.WriteLine($"Stored {parsedItems.Count}");
 
             Message = $"Successfully parsed {parsedItems.Count} transactions!";
         }
         catch (Exception ex)
         {
             Message = $"Error processing file: {ex.Message}";
+            Console.WriteLine("Failed to process file: " + ex.ToString());
+            return Page();
         }
-
+        Console.WriteLine("Redirecting to ProcessFile page...");
         return RedirectToPage("ProcessFile");
     }
 }

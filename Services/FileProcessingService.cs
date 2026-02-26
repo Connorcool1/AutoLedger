@@ -1,6 +1,7 @@
 namespace BookkeepingApp.Services;
 
 using BookkeepingApp.Models;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 public class FileProcessingService
@@ -66,7 +67,7 @@ public class FileProcessingService
                         idCount++;
                         currentItem.Type = TransactionType.Default;
                         string dateStr = line.Replace("Date:", "").Trim();
-                        currentItem.Date = DateTime.Parse(dateStr);
+                        currentItem.Date = DateTime.Parse(dateStr, new CultureInfo("en-GB"));
                     }
                     else if (line.StartsWith("Description:") && currentItem != null)
                     {
