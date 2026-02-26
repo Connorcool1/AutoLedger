@@ -3,6 +3,8 @@ namespace BookkeepingApp.Services;
 using BookkeepingApp.Models;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using ClosedXML.Excel;
+using Microsoft.AspNetCore.Mvc;
 
 public class FileProcessingService
 {
@@ -142,7 +144,6 @@ public class FileProcessingService
 
     public async Task<string> GenerateCSVContentAsync(List<Item> items)
     {
-
         try
         {
             var csvBuilder = new System.Text.StringBuilder();
@@ -168,6 +169,54 @@ public class FileProcessingService
         {
             throw new InvalidOperationException($"Error generating CSV content: {ex.Message}", ex);
         }
+    }
+
+    public async Task<XLWorkbook> GenerateXLContentAsync(List<Item> items)
+    {
+        using var workbook = new XLWorkbook();
+        var worksheet = workbook.Worksheets.Add("Transactions");
+
+        // Titles
+        worksheet.Cell(1, 1).Value = "GENERAL LEDGER";
+        worksheet.Cell(2, 1).Value = "ACCOUNT: SANTANDER CURRENT/PAYPAL";
+        worksheet.Cell(3, 1).Value = "COCONUTBLUSH";
+
+        // Header
+        worksheet.Cell(4, 1).Value = "Date";
+        worksheet.Cell(4, 2).Value = "Description";
+        worksheet.Cell(4, 3).Value = "Amount";
+        worksheet.Cell(4, 4).Value = "Type";
+
+        // Data
+        for (int i = 0; i < items.Count; i++)
+        {
+            var item = items[i];
+            var row = i + 5;
+            worksheet.Cell(row, 1).Value = item.Date;
+            worksheet.Cell(row, 1).Style.DateFormat.Format = "dd-MM";
+            worksheet.Cell(row, 2).Value = item.Description;
+            worksheet.Cell(row, 3).Value = item.Amount;
+            worksheet.Cell(row, 3).Style.NumberFormat.Format = "£#,##0.00";
+            worksheet.Cell(row, 4).Value = item.Type.ToString();
+        }
+
+        // Balance calculations
+        double totalAmount = CalculateTotalAmount(items);
+        double totalIncome = getTotalIncome(items);
+        double totalExpenditure = getTotalExpenditure(items);
+        worksheet.Cell(items.Count + 6, 1).Value = "Total Expenditure";
+        worksheet.Cell(items.Count + 6, 2).Value = "Total Income";
+        worksheet.Cell(items.Count + 6, 3).Value = "Total Balance";
+        worksheet.Cell(items.Count + 7, 1).Value = totalExpenditure;
+        worksheet.Cell(items.Count + 7, 1).Style.NumberFormat.Format = "£#,##0.00";
+        worksheet.Cell(items.Count + 7, 2).Value = totalIncome;
+        worksheet.Cell(items.Count + 7, 2).Style.NumberFormat.Format = "£#,##0.00";
+        worksheet.Cell(items.Count + 7, 3).Value = totalAmount;
+        worksheet.Cell(items.Count + 7, 3).Style.NumberFormat.Format = "£#,##0.00";
+
+        worksheet.Columns().AdjustToContents();
+
+        return workbook;
     }
 
     private double getTotalExpenditure(List<Item> items)

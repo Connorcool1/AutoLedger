@@ -291,3 +291,13 @@
 /home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/Debug/net10.0/BookkeepingApp.pdb
 /home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/Debug/net10.0/BookkeepingApp.genruntimeconfig.cache
 /home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/Debug/net10.0/ref/BookkeepingApp.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/ClosedXML.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/ClosedXML.Parser.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/DocumentFormat.OpenXml.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/DocumentFormat.OpenXml.Framework.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/ExcelNumberFormat.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/RBush.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/SixLabors.Fonts.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/bin/Debug/net10.0/System.IO.Packaging.dll
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/Debug/net10.0/BookkeepingApp.csproj.AssemblyReference.cache
+/home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/Debug/net10.0/Bookkeep.C4A22568.Up2Date

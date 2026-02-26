@@ -10,11 +10,11 @@
         "projectUniqueName": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
         "projectName": "BookkeepingApp",
         "projectPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
-        "packagesPath": "/root/.nuget/packages/",
+        "packagesPath": "/home/connor/.nuget/packages/",
         "outputPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/root/.nuget/NuGet/NuGet.Config"
+          "/home/connor/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net10.0"
@@ -44,6 +44,12 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
+          "dependencies": {
+            "ClosedXML": {
+              "target": "Package",
+              "version": "[0.105.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

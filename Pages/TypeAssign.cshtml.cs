@@ -57,6 +57,44 @@ public class TypeAssignModel : PageModel
             return RedirectToPage();
         }
     }
+
+    public async Task<IActionResult> OnPostEXCELDownloadAsync()
+    {
+        var bom = new byte[] { 0xEF, 0xBB, 0xBF };
+        try
+        {
+            FilteredItems = GetFilteredItems();
+            if (!FilteredItems.Any())
+            {
+                Message = $"No Items Found";
+                return RedirectToPage();
+            }
+
+            for (int i = 0; i < FilteredItems.Count; i++)
+            {
+                FilteredItems[i].Type = ItemTypes[FilteredItems[i].Id.Value];
+            }
+
+            int year = FilteredItems[0].Date.Year;
+            string month = FilteredItems[0].Date.ToString("MMMM").ToUpper();
+            
+            var XLContent = await _fileProcessingService.GenerateXLContentAsync(FilteredItems);
+
+            var fileName = $"{month}_{year}.xlsx";
+            
+            using var ms = new MemoryStream();
+            XLContent.SaveAs(ms);
+            ms.Position = 0;
+
+
+            return File(ms.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", fileName);
+        }
+        catch (Exception ex)
+        {
+            Message = $"Error generating download: {ex.Message}";
+            return RedirectToPage();
+        }
+    }
     private List<Item> GetFilteredItems()
     {
         var parsedItems = _session.GetItems();
