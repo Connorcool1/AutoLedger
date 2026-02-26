@@ -159,7 +159,7 @@ public class FileProcessingService
             foreach (var item in items)
             {
                 string escapedDescription = item.Description.Replace("\"", "\"\"");
-                csvBuilder.AppendLine($"{item.Date:dd/MM/yyyy},\"{escapedDescription}\",{item.Amount},{item.Type}");
+                csvBuilder.AppendLine($"{item.Date:dd-MM},\"{escapedDescription}\",{item.Amount},{item.Type}");
             }
 
             return await Task.FromResult(csvBuilder.ToString());

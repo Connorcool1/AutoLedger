@@ -27,6 +27,7 @@ public class TypeAssignModel : PageModel
 
     public async Task<IActionResult> OnPostDownloadAsync()
     {
+        var bom = new byte[] { 0xEF, 0xBB, 0xBF };
         try
         {
             FilteredItems = GetFilteredItems();
@@ -47,7 +48,8 @@ public class TypeAssignModel : PageModel
             var csvContent = await _fileProcessingService.GenerateCSVContentAsync(FilteredItems);
 
             var fileName = $"{month}_{year}.csv";
-            return File(System.Text.Encoding.UTF8.GetBytes(csvContent), "text/csv", fileName);
+            var csvBytes = System.Text.Encoding.UTF8.GetBytes(csvContent);
+            return File(bom.Concat(csvBytes).ToArray(), "text/csv", fileName);
         }
         catch (Exception ex)
         {

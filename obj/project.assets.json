@@ -8,7 +8,7 @@
     "net10.0": []
   },
   "packageFolders": {
-    "/home/connor/.nuget/packages/": {}
+    "/root/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
@@ -16,11 +16,11 @@
       "projectUniqueName": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
       "projectName": "BookkeepingApp",
       "projectPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/BookkeepingApp.csproj",
-      "packagesPath": "/home/connor/.nuget/packages/",
+      "packagesPath": "/root/.nuget/packages/",
       "outputPath": "/home/connor/code/coconutblush/AutoLedger/AutoLedger/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/home/connor/.nuget/NuGet/NuGet.Config"
+        "/root/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
